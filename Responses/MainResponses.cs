@@ -21,6 +21,7 @@ namespace PictureBot.Responses
         {
             // Add a response for the user if Regex or LUIS doesn't know
             // What the user is trying to communicate
+            await context.SendActivityAsync($"Intent I dont know what you ask!");
         }
         public static async Task ReplyWithLuisScore(ITurnContext context, string key, double score)
         {
@@ -29,6 +30,10 @@ namespace PictureBot.Responses
         public static async Task ReplyWithShareConfirmation(ITurnContext context)
         {
             await context.SendActivityAsync($"Posting your picture(s) on twitter...");
+        }
+        public static async Task ReplyWithSearchConfirmation(ITurnContext context)
+        {
+            await context.SendActivityAsync($"Finding your picture(s)...");
         }
         public static async Task ReplyWithOrderConfirmation(ITurnContext context)
         {
